@@ -1,0 +1,33 @@
+### Create a ToDo
+POST http://localhost:3000/api/todo
+Content-Type: application/json
+
+{
+  "title"      : "My second ToDo",
+  "description": "Lore ipsum, lipsum Orem",
+  "category"   : "Test"
+}
+
+### Retrieve all todos
+GET http://localhost:3000/api/todos
+Accept: application/json
+
+> {% response.body.length > 0 ? client.global.set("todoId", response.body[0]._id) : client.global.set("todoId",'1234XYZ'); %}
+
+
+### Retrieve specific todo
+GET http://localhost:3000/api/todo/{{todoId}}
+Accept: application/json
+
+### Retrieve specific todo
+PUT http://localhost:3000/api/todo/{{todoId}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title"      : "My updated ToDo"
+}
+
+### Delete a specific todo
+DELETE http://localhost:3000/api/todo/{{todoId}}
+Content-Type: application/json

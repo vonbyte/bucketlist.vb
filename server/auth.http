@@ -1,0 +1,16 @@
+## Login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "tvb",
+  "password": "secret"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}
+
+### Authorization by token, part 2. Use token to authorize.
+GET http://localhost:3000/api/todos
+Authorization: Bearer {{auth_token}}
+
+###
